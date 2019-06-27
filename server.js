@@ -18,7 +18,43 @@ let smurfs = [
     age: 200,
     height: '5cm',
     id: 0
-  }
+  },
+  {
+    name: 'Grumpy',
+    age: 100,
+    height: '8cm',
+    id: 1
+  },
+  {
+    name: 'Stupid',
+    age: 20,
+    height: '5cm',
+    id: 2
+  },
+  {
+    name: 'Blue',
+    age: 100,
+    height: '10cm',
+    id: 3
+  },
+  {
+    name: 'Baby',
+    age: 500,
+    height: '10cm',
+    id: 4
+  },
+  {
+    name: 'Blue',
+    age: 100,
+    height: '15cm',
+    id: 5
+  },
+  {
+    name: 'John',
+    age: 80,
+    height: '3cm',
+    id: 6
+  },
 ];
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);

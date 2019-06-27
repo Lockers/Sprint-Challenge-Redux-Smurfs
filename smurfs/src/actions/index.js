@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const baseUrl = 'http://localhost:3333/smurfs';
+
 export const newSmurfy = {
   name: 'bunty Smurf',
   age: 10,
@@ -29,7 +30,7 @@ export const getSmurfs = () => dispatch => {
       dispatch({ type: GET_SMURFS_SUCCESS, payload: res.data });
       })
       .catch(err => {
-      dispatch({ type: GET_SMURFS_FAILURE})
+        dispatch({ type: GET_SMURFS_FAILURE, payload: err.msg })
     })
 }
 
@@ -42,20 +43,21 @@ export const addSmurfs = (newSmurf) => dispatch => {
       dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data })
     })
     .catch(err => {
-      dispatch({ type: ADD_SMURF_FAILURE, payload: err.message })
+      dispatch({ type: ADD_SMURF_FAILURE, payload: err.msg })
   })
 }
  
 export const deleteSmurf = (id) => dispatch => {
   dispatch({ type: DELETING_SMURF });
+  console.log('Delete SMurf FIring')
   axios
     .delete(`${baseUrl}/${id}`)
     .then(res => {
       dispatch({ type: DELETE_SMURF_SUCCESS, payload: res.data })
-      console.log('Delete SMurf FIring')
+      
     })
     .catch(err => {
-    dispatch({ type: DELETE_SMURF_FAILURE, payload: err.message})
+    dispatch({ type: DELETE_SMURF_FAILURE, payload: err.msg})
   })
 }
 export const updateSmurf = (id) => dispatch => {
@@ -66,7 +68,7 @@ export const updateSmurf = (id) => dispatch => {
       dispatch({ type: UPDATE_SMURF_SUCCESS, payload: res.data })
     })
     .catch(err => {
-      dispatch({ type: UPDATE_SMURF_FAILURE, payload: err.message })
+      dispatch({ type: UPDATE_SMURF_FAILURE, payload: err.msg })
     })
 }
 
