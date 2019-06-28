@@ -67,7 +67,7 @@ export const SingleSmurf = props => {
             <h3>{props.smurf.name}</h3>
                 <strong>{props.smurf.age} smurf years old</strong>
             <p>{props.smurf.height} Cm Tall </p>
-            <Button onClick={() => props.deleteSmurf(props.smurf.id)}>X</Button>
+            <Button onClick={() => props.deleteSmurf(props.smurf.id)}>x</Button>
             </Div>
             <Form onSubmit={eventHandler}>
                 <Input

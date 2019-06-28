@@ -28,15 +28,14 @@ const Button = Styled.button`
 export const Smurfs = props => {
     console.log(props.deleteSmurf)
     return (
-        <Link to={`/singlesmurf/${props.smurf.id}`}>
-            <Route path={`/singlesmurf/${props.smurf.id}`} />
             <Div>
-                <h3>{props.smurf.name}</h3>
+                <Route path={`/singlesmurf/${props.smurf.id}`} />
+                <Link to={`/singlesmurf/${props.smurf.id}`}> <h3>{props.smurf.name}</h3> </Link>
                 <strong>{props.smurf.height}</strong>
                 <p>{props.smurf.age} smurf years old</p>
-                <Button onClick={() => props.deleteSmurf(props.smurf.id)}>X</Button>
+                <Button onClick={() => props.deleteSmurf(props.smurf.id)}>Kill</Button>
             </Div>
-        </Link>
+        
     )
 }
 
