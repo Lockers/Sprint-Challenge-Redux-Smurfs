@@ -4,6 +4,7 @@ import './index.css';
 import App from './components/App';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+import { BrowserRouter } from 'react-router-dom'
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { getSmurfReducer } from './reducers/index';
@@ -17,8 +18,10 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById('root')
 );

@@ -56,7 +56,7 @@ export const getSmurfReducer = (state = initialState, action) => {
             return {
                 ...state,
                 addingSmurf: false,
-                smurfs: [...state.smurfs, ...action.payload]
+                smurfs: action.payload
             }
         case DELETING_SMURF:
             return {
@@ -73,7 +73,7 @@ export const getSmurfReducer = (state = initialState, action) => {
             return {
                 ...state,
                 deletingSmurf: false,
-                smurfs: [...state.smurfs, ...action.payload]
+                smurfs: action.payload
             }
         case UPDATING_SMURF:
             return {
@@ -90,7 +90,7 @@ export const getSmurfReducer = (state = initialState, action) => {
             return {
                 ...state,
                 updatingSmurf: false,
-                smurfs: [...state.smurfs, ...action.payload]
+                smurfs: action.payload
             }
         default: return state;
     }

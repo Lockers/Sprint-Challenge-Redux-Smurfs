@@ -2,7 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSmurfs, addSmurfs, newSmurfy, deleteSmurf, updateSmurf } from '../actions/index'
 import { Smurfs } from './Smurfs'
-import './App.css';
+import { Route } from 'react-router'
+import Styled from 'styled-components'
+
+const H1 = Styled.h1`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: dodgerblue;
+`
+const Div = Styled.div`
+  display: flex;
+  border: solid black;
+  flex-wrap: wrap;
+  background: dodgerblue;
+  color: white;
+  justify-content: center;
+`
+const Form = Styled.form`
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+
+`
 
 class App extends Component {
   componentDidMount() {
@@ -33,36 +55,33 @@ class App extends Component {
     }
     return (
       <div>
-      <div>
-      <form onSubmit={this.changeHandler}>
-        <input
-              type='text'
-              name='name'
-        />
-        <input
-              type='number'
-              name='age'
-        />
-        <input
-              type='text'
-              name='height'
-            />
-            <button>ADD</button>
-        </form>
-      </div>
-      <div className="App">
-        <button onClick={() => this.props.deleteSmurf(1)}></button>
-        {
-            this.props.smurfs.map(smurf => {
-              return <Smurfs smurf={smurf} key={smurf.id} />
-          })
-        }
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        <H1>Smurf Village</H1>
+        <div>
+          <H1>Add a blue guy</H1>
+          <Form onSubmit={this.changeHandler}>
+              <input
+                type='text'
+                name='name'
+              />
+              <input
+                  type='number'
+                  name='age'
+              />
+              <input
+                 type='text'
+                 name='height'
+              />
+              <button>ADD</button>
+            </Form>
+          </div>
+          <Div>
+          {
+              this.props.smurfs.map(smurf => {
+                return <Route path='/' render={(props) => <Smurfs smurf={smurf} key={smurf.id} deleteSmurf={this.props.deleteSmurf} updateSmurf={this.props.updateSmurf} {...props} />}/>
+            })
+          }
+          </Div>
         </div>
-      </div>
     );
   }
 }
@@ -71,6 +90,8 @@ function mapStateToProps(state) {
   return {
     smurfs: state.smurfs,
     fetchingSmurfs: state.fetchingSmurfs,
+    addingSmurf: state.addingSmurf,
+    deletingSmurf: state.deletingSmurf
   };
 }
 
