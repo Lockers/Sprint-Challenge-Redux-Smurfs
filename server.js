@@ -14,45 +14,45 @@ const sendUserError = (msg, res) => {
 
 let smurfs = [
   {
-    name: 'Brainey',
+    name: 'Brainey Smurf',
     age: 200,
-    height: '5cm',
+    height: 5,
     id: 0
   },
   {
-    name: 'Grumpy',
+    name: 'Grumpy Smurf',
     age: 100,
-    height: '8cm',
+    height: 8,
     id: 1
   },
   {
-    name: 'Stupid',
+    name: 'Stupid Smurf',
     age: 20,
-    height: '5cm',
+    height: 5,
     id: 2
   },
   {
-    name: 'Blue',
+    name: 'Barry Smurf',
     age: 100,
-    height: '10cm',
+    height: 10,
     id: 3
   },
   {
-    name: 'Baby',
+    name: 'Addict Smurf',
     age: 500,
-    height: '10cm',
+    height: 10,
     id: 4
   },
   {
-    name: 'Hairy',
+    name: 'Pimp Smurf',
     age: 100,
-    height: '15cm',
+    height: 15,
     id: 5
   },
   {
-    name: 'John',
+    name: 'Detective Smurf',
     age: 80,
-    height: '3cm',
+    height: 3,
     id: 6
   },
 ];

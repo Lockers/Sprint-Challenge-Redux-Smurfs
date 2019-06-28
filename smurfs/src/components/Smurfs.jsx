@@ -31,7 +31,7 @@ export const Smurfs = props => {
             <Div>
                 <Route path={`/singlesmurf/${props.smurf.id}`} />
                 <Link to={`/singlesmurf/${props.smurf.id}`}> <h3>{props.smurf.name}</h3> </Link>
-                <strong>{props.smurf.height}</strong>
+                <strong>{props.smurf.height} Cm Tall</strong>
                 <p>{props.smurf.age} smurf years old</p>
                 <Button onClick={() => props.deleteSmurf(props.smurf.id)}>Kill</Button>
             </Div>

@@ -65,7 +65,7 @@ export const SingleSmurf = props => {
         <div>
             <Div>
             <h3>{props.smurf.name}</h3>
-                <strong>{props.smurf.age} smurf years old</strong>
+            <strong>{props.smurf.age} smurf years old</strong>
             <p>{props.smurf.height} Cm Tall </p>
             <Button onClick={() => props.deleteSmurf(props.smurf.id)}>x</Button>
             </Div>
@@ -73,17 +73,14 @@ export const SingleSmurf = props => {
                 <Input
                     type='text'
                     name='name'
-                // value={props.smurf.name}
                 />
                 <Input
                     type='number'
                     name='age'
-                // value={props.smurf.age}
                 />
                 <Input
-                    type='text'
+                    type='number'
                     name='height'
-                // value={props.smurf.height}
                 />
                 <Button1>Update</Button1>
             </Form>

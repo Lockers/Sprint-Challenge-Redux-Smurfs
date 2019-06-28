@@ -87,7 +87,7 @@ class App extends Component {
                   name='age'
               />
               <Input
-                 type='text'
+                 type='number'
                  name='height'
               />
               <Button>ADD</Button>
