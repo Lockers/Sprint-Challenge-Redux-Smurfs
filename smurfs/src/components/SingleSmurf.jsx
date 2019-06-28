@@ -16,7 +16,7 @@ const Div = Styled.div`
 `
 const Button = Styled.button`
   display: flex;
-  width: 25px;
+  width: auto
   height: 25px;
   justify-content: center;
   background: dodgerblue;
@@ -24,8 +24,26 @@ const Button = Styled.button`
   margin: 0 auto;
 `
 const Form = Styled.form`
-    display: flex;
-    flex-direction: column;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+`
+const Input = Styled.input`
+  margin: 0 .25rem;
+  min-width: 125px;
+  border: 1px solid #dodgerblue;
+  height: 20px
+  border-radius: 10px;
+  transition: border-color .5s ease-out;
+  color: dodgerblue;
+`
+const Button1 = Styled(Button)`
+    background: white;
+    color: dodgerblue;
+    margin: 10px auto;
+    width: 50px;
 `
 
 export const SingleSmurf = props => {
@@ -45,30 +63,30 @@ export const SingleSmurf = props => {
     }
     return (
         <div>
-            <Form onSubmit={eventHandler}>
-                <input
-                    type='text'
-                    name='name'
-                    // value={props.smurf.name}
-                />
-                <input
-                    type='number'
-                    name='age'
-                    // value={props.smurf.age}
-                />
-                <input
-                    type='text'
-                    name='height'
-                    // value={props.smurf.height}
-                />
-                <button>Update</button>
-            </Form>
             <Div>
             <h3>{props.smurf.name}</h3>
                 <strong>{props.smurf.age} smurf years old</strong>
             <p>{props.smurf.height} Cm Tall </p>
             <Button onClick={() => props.deleteSmurf(props.smurf.id)}>X</Button>
             </Div>
+            <Form onSubmit={eventHandler}>
+                <Input
+                    type='text'
+                    name='name'
+                // value={props.smurf.name}
+                />
+                <Input
+                    type='number'
+                    name='age'
+                // value={props.smurf.age}
+                />
+                <Input
+                    type='text'
+                    name='height'
+                // value={props.smurf.height}
+                />
+                <Button1>Update</Button1>
+            </Form>
         </div>
     )
 }

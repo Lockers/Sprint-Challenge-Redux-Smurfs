@@ -22,10 +22,27 @@ const Div = Styled.div`
   justify-content: center;
 `
 const Form = Styled.form`
+  height: auto;
   display: flex;
   justify-content: center;
-  margin: 15px;
-
+  margin-bottom: 20px;
+`
+const Input = Styled.input`
+  margin: 0 .25rem;
+  min-width: 125px;
+  border: 1px solid #dodgerblue;
+  height: 20px
+  border-radius: 10px;
+  transition: border-color .5s ease-out;
+  color: dodgerblue;
+`
+const Button = Styled.button`
+  display: flex;
+  width: auto
+  height: 25px;
+  justify-content: center;
+  background: dodgerblue;
+  color: white;
 `
 
 class App extends Component {
@@ -56,25 +73,24 @@ class App extends Component {
     }
     return (
       <div>
-        <H1>Smurf Village</H1>
-        <Link to='/'>Back To the village
+        <Link to='/'><H1>Back To Smurf village</H1>
         </Link>
         <div>
           <H1>Add a blue guy</H1>
           <Form onSubmit={this.changeHandler}>
-              <input
+              <Input
                 type='text'
                 name='name'
               />
-              <input
+              <Input
                   type='number'
                   name='age'
               />
-              <input
+              <Input
                  type='text'
                  name='height'
               />
-              <button>ADD</button>
+              <Button>ADD</Button>
             </Form>
           </div>
         <Div>
