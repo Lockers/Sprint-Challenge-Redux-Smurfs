@@ -4,6 +4,8 @@ import { getSmurfs, addSmurfs, newSmurfy, deleteSmurf, updateSmurf } from '../ac
 import { Smurfs } from './Smurfs'
 import { Route } from 'react-router'
 import Styled from 'styled-components'
+import { SingleSmurf } from './SingleSmurf'
+import { Link } from 'react-router-dom'
 
 const H1 = Styled.h1`
   display: flex;
@@ -33,8 +35,7 @@ class App extends Component {
 
   changeHandler = (e) => {
     e.preventDefault()
-    console.log('event handler firing')
-    let name = e.target['name'];
+    const name = e.target['name'];
     const age = e.target['age'];
     const height = e.target['height'];
     
@@ -56,6 +57,8 @@ class App extends Component {
     return (
       <div>
         <H1>Smurf Village</H1>
+        <Link to='/'>Back To the village
+        </Link>
         <div>
           <H1>Add a blue guy</H1>
           <Form onSubmit={this.changeHandler}>
@@ -74,10 +77,13 @@ class App extends Component {
               <button>ADD</button>
             </Form>
           </div>
-          <Div>
+        <Div>
+          {
+            this.props.smurfs.map(smurf => <Route exact path={`/singlesmurf/${smurf.id}`} render={(props) => <SingleSmurf {...props} smurf={smurf} key={smurf.id} updateSmurf={this.props.updateSmurf} deleteSmurf={this.props.deleteSmurf} />} />)
+          }
           {
               this.props.smurfs.map(smurf => {
-                return <Route path='/' render={(props) => <Smurfs smurf={smurf} key={smurf.id} deleteSmurf={this.props.deleteSmurf} updateSmurf={this.props.updateSmurf} {...props} />}/>
+                return <Route exact path='/' render={(props) => <Smurfs smurf={smurf} key={smurf.id} deleteSmurf={this.props.deleteSmurf} updateSmurf={this.props.updateSmurf} {...props} />}/>
             })
           }
           </Div>

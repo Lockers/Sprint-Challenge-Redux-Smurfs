@@ -29,7 +29,7 @@ export const Smurfs = props => {
     console.log(props.deleteSmurf)
     return (
         <Link to={`/singlesmurf/${props.smurf.id}`}>
-            <Route path='/singlesmurf/' />
+            <Route path={`/singlesmurf/${props.smurf.id}`} />
             <Div>
                 <h3>{props.smurf.name}</h3>
                 <strong>{props.smurf.height}</strong>

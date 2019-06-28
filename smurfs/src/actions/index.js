@@ -60,10 +60,10 @@ export const deleteSmurf = (id) => dispatch => {
     dispatch({ type: DELETE_SMURF_FAILURE, payload: err.msg})
   })
 }
-export const updateSmurf = (id) => dispatch => {
+export const updateSmurf = (id, updatedSmurf) => dispatch => {
   dispatch({ type: UPDATING_SMURF });
   axios
-    .put(`${baseUrl}/${id}`)
+    .put(`${baseUrl}/${id}`, updatedSmurf)
     .then(res => {
       dispatch({ type: UPDATE_SMURF_SUCCESS, payload: res.data })
     })
