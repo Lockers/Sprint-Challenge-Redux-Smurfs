@@ -14,11 +14,47 @@ const sendUserError = (msg, res) => {
 
 let smurfs = [
   {
-    name: 'Brainey',
+    name: 'Brainey Smurf',
     age: 200,
-    height: '5cm',
+    height: 5,
     id: 0
-  }
+  },
+  {
+    name: 'Grumpy Smurf',
+    age: 100,
+    height: 8,
+    id: 1
+  },
+  {
+    name: 'Stupid Smurf',
+    age: 20,
+    height: 5,
+    id: 2
+  },
+  {
+    name: 'Barry Smurf',
+    age: 100,
+    height: 10,
+    id: 3
+  },
+  {
+    name: 'Addict Smurf',
+    age: 500,
+    height: 10,
+    id: 4
+  },
+  {
+    name: 'Pimp Smurf',
+    age: 100,
+    height: 15,
+    id: 5
+  },
+  {
+    name: 'Detective Smurf',
+    age: 80,
+    height: 3,
+    id: 6
+  },
 ];
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
